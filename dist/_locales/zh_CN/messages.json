@@ -1,0 +1,14 @@
+{
+  "extDescription": {
+    "message": "一个 ant.design 网站插件，可以帮助你在浏览组件时编辑示例代码并运行查看，无需跳转 CodeSandbox 或者 CodePen 等网站。",
+    "description": ""
+  },
+  "save": {
+    "message": "保存",
+    "description": ""
+  },
+  "saveSuccess": {
+    "message": "保存成功",
+    "description": ""
+  }
+}

@@ -1,4 +1,6 @@
 const pkgPaths = ["babelStandalonePath", "monacoEditorPath", "momentPath"];
+const saveBtn = document.getElementById("save");
+saveBtn.innerText = chrome.i18n.getMessage("save");
 
 chrome.storage.local.get(pkgPaths, function (values) {
   pkgPaths.forEach(function (item) {
@@ -7,13 +9,14 @@ chrome.storage.local.get(pkgPaths, function (values) {
   });
 });
 
-document.getElementById("save").addEventListener("click", function () {
+saveBtn.addEventListener("click", function () {
   const params = {};
   pkgPaths.forEach((item) => {
     params[item] = document.getElementById(item).value.trim();
   });
   chrome.storage.local.set(params, function () {
-    document.querySelector(".message").innerText = "保存成功";
+    document.querySelector(".message").innerText =
+      chrome.i18n.getMessage("saveSuccess");
     setTimeout(function () {
       document.querySelector(".message").innerText = "";
     }, 5000);

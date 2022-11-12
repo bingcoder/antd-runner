@@ -1,0 +1,14 @@
+{
+  "extDescription": {
+    "message": "An ant.design web plugin that helps you edit the sample code while browsing components and preview it without going to sites such as CodeSandbox or CodePen",
+    "description": ""
+  },
+  "save": {
+    "message": "Save",
+    "description": ""
+  },
+  "saveSuccess": {
+    "message": "Save Success",
+    "description": ""
+  }
+}

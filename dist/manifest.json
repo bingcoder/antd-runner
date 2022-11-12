@@ -1,8 +1,9 @@
 {
   "name": "Ant Design Runner",
-  "description": "Ant Design 本地编辑预览，无需跳转CodeSandbox、CodePen",
+  "description": "__MSG_extDescription__",
   "version": "1.0",
   "manifest_version": 3,
+  "default_locale": "zh_CN",
   "content_scripts": [
     {
       "matches": [
