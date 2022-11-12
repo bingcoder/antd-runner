@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ant Design Runner Config</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-size: 14px;
+      padding: 0 20px;
+    }
+
+    .config-item {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .config-item label {
+      width: 100px;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .config-item input {
+      flex: 1;
+    }
+
+    .config-item textarea {
+      flex: 1;
+      padding: 4px;
+      width: 100%;
+    }
+
+    .action-container {
+      text-align: right;
+      padding-bottom: 20px;
+    }
+
+    .message {
+      text-align: center;
+    }
+
+    .action-container #save {
+      cursor: pointer;
+      padding: 2px 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="config-container">
+    <p class="config-item">
+      <label for="babelStandalonePath">babel-standalone:</label>
+      <textarea id="babelStandalonePath" placeholder="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.20.2/babel.min.js" rows="4" required></textarea>
+    </p>
+    <p class="config-item">
+      <label for="monacoEditorPath">monaco-editor:</label>
+      <textarea id="monacoEditorPath" placeholder="https://cdn.bootcdn.net/ajax/libs/monaco-editor/0.34.1/min/vs" rows="4" required></textarea>
+    </p>
+    <p class="config-item">
+      <label for="momentPath">&ensp;moment:</label>
+      <textarea id="momentPath" placeholder="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/moment.min.js" rows="4" required></textarea>
+    </p>
+    <p class="message"></p>
+  </div>
+  <div class="action-container">
+    <button id="save">保存</button>
+  </div>
+  <script src="./option.js"></script>
+</body>
+
+</html>

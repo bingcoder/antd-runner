@@ -1,0 +1,22 @@
+{
+  "name": "ext",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "liujian <liujian314@sf-express.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.20.2",
+    "@babel/traverse": "^7.20.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.11.9",
+    "@types/react": "17",
+    "@types/react-dom": "17",
+    "antd": "^4.24.2",
+    "monaco-editor": "^0.34.1",
+    "rollup": "^3.3.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
