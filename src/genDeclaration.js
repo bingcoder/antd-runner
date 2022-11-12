@@ -114,11 +114,11 @@ function traverseImportDeclaration(declarationPath, parentPath) {
 ['antd', '@ant-design/icons', 'moment'].forEach(traverseImportDeclaration);
 
 fs.writeFile(
-  path.resolve(__dirname, '../dist', 'antd.d.json'),
+  path.resolve(__dirname, '../dist/js', 'declaration.json'),
   JSON.stringify(DeclarationMap),
   (err) => {
     if (!err) {
-      console.log('success');
+      console.log('created declaration.json success');
     }
   }
 );
