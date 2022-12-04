@@ -1,15 +1,14 @@
 {
-  "name": "Ant Design Runner",
+  "name": "Ant Design Runner v4",
   "description": "__MSG_extDescription__",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "default_locale": "zh_CN",
   "content_scripts": [
     {
       "matches": [
-        "https://ant.design/*",
-        "https://ant-design.antgroup.com/*",
-        "https://ant-design.gitee.io/*"
+        "https://4x.ant.design/*",
+        "https://4x-ant-design.antgroup.com/*"
       ],
       "js": ["content-script.js"]
     }
@@ -25,9 +24,8 @@
     {
       "resources": ["js/*"],
       "matches": [
-        "https://ant.design/*",
-        "https://ant-design.antgroup.com/*",
-        "https://ant-design.gitee.io/*"
+        "https://4x.ant.design/*",
+        "https://4x-ant-design.antgroup.com/*"
       ]
     }
   ],

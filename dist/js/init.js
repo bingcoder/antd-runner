@@ -272,7 +272,7 @@
             react: "React",
             "react-dom": "ReactDOM",
             antd: "antd",
-            "@ant-design/icons": "AntdIcons",
+            "@ant-design/icons": "antdIcons",
             moment: "moment",
           },
         },

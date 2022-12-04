@@ -2,7 +2,7 @@
 (function () {
     window.React = window.react;
     window.ReactDOM = window["react-dom"];
-    window.AntdIcons = window["@ant-design/icons"];
+    window.antdIcons = window["@ant-design/icons"];
     function getTheme() {
         var _a;
         return ((_a = document.body.dataset.theme) === null || _a === void 0 ? void 0 : _a.includes("dark")) ? "vs-dark" : "vs";
@@ -65,26 +65,17 @@
         };
         return EditorList;
     }());
+    var MonacoAction = function () {
+        var _a = React.useState(false), open = _a[0], setOpen = _a[1];
+        var handleOpen = function (e) {
+            handleMonacoEditorClick(e.nativeEvent.target.parentElement);
+            setOpen(function (o) { return !o; });
+        };
+        return React.createElement(antd.Tooltip, {
+            title: getLabel(open ? "closeEditor" : "openEditor"),
+        }, React.createElement("span", { onClick: handleOpen }, React.createElement(antdIcons.LaptopOutlined)));
+    };
     var editorList = new EditorList();
-    function setTipInnerText(monacoSpan) {
-        tip.querySelector(".ant-tooltip-inner").innerText =
-            monacoSpan.classList.contains("monaco-editor-open")
-                ? getLabel("closeEditor")
-                : getLabel("openEditor");
-    }
-    function handleMouseenter(e) {
-        var _a = e.target.getBoundingClientRect(), width = _a.width, left = _a.left, top = _a.top;
-        setTipInnerText(e.target);
-        tip === null || tip === void 0 ? void 0 : tip.classList.remove("ant-tooltip-hidden");
-        tip.style.left = "".concat(left + width / 2, "px");
-        tip.style.top = "".concat(top - tip.offsetHeight + document.documentElement.scrollTop - 5, "px");
-        tip.style.transform = "translateX(-50%)";
-    }
-    function handleMouseleave() {
-        tip === null || tip === void 0 ? void 0 : tip.classList.add("ant-tooltip-hidden");
-        tip.style.left = "0px";
-        tip.style.top = "0px";
-    }
     function handleError(rootSelector, error) {
         var root = document.querySelector(rootSelector);
         if (root) {
@@ -137,7 +128,7 @@
     }
     function handleMonacoEditorClick(e) {
         var _a;
-        var monacoSpan = e.currentTarget;
+        var monacoSpan = e;
         var codeBox = findCodeBox(monacoSpan);
         if (!(codeBox === null || codeBox === void 0 ? void 0 : codeBox.id))
             return;
@@ -184,21 +175,15 @@
             }
         }
         monacoSpan.classList.toggle("monaco-editor-open");
-        setTipInnerText(monacoSpan);
     }
-    var monacoIcon = '<svg class="monaco-icon-svg" viewBox="64 64 896 896" focusable="false" data-icon="laptop" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M956.9 845.1L896.4 632V168c0-17.7-14.3-32-32-32h-704c-17.7 0-32 14.3-32 32v464L67.9 845.1C60.4 866 75.8 888 98 888h828.8c22.2 0 37.6-22 30.1-42.9zM200.4 208h624v395h-624V208zm228.3 608l8.1-37h150.3l8.1 37H428.7zm224 0l-19.1-86.7c-.8-3.7-4.1-6.3-7.8-6.3H398.2c-3.8 0-7 2.6-7.8 6.3L371.3 816H151l42.3-149h638.2l42.3 149H652.7z"></path></svg>';
     function addMonacoAction() {
         var codeBoxActions = document.querySelectorAll(".code-box-actions");
         codeBoxActions.forEach(function (item) {
             if (item.querySelector(".monaco-editor-action"))
                 return;
             var span = document.createElement("span");
-            span.innerHTML = monacoIcon;
-            span.className =
-                "anticon anticon-laptop code-box-code-action monaco-editor-action";
-            span.addEventListener("mouseenter", handleMouseenter);
-            span.addEventListener("mouseleave", handleMouseleave);
-            span.addEventListener("click", handleMonacoEditorClick);
+            span.className = "code-box-code-action monaco-editor-action";
+            ReactDOM.render(React.createElement(MonacoAction), span);
             item.appendChild(span);
         });
         if (codeBoxActions.length) {
@@ -254,14 +239,6 @@
         });
         themeObserver.observe(document.body, { attributes: true });
     }
-    function createTip() {
-        var tooltip = document.createElement("div");
-        tooltip.innerHTML = "<div><div class=\"ant-tooltip ant-tooltip-placement-top ant-tooltip-hidden\" pointer-events: none;\"><div class=\"ant-tooltip-content\"><div class=\"ant-tooltip-arrow\"><span class=\"ant-tooltip-arrow-content\"></span></div><div class=\"ant-tooltip-inner\" role=\"tooltip\"></div></div></div></div>";
-        var tip = tooltip.querySelector(".ant-tooltip");
-        document.body.appendChild(tooltip);
-        return tip;
-    }
     observerTheme();
     observerHistory();
-    var tip = createTip();
 })();
