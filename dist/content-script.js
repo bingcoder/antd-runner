@@ -1,5 +1,3 @@
-const pkgPaths = ["babelStandalonePath", "monacoEditorPath", "momentPath"];
-
 const resources = ["js/index.js", "js/action.js", "js/antd.local.js"];
 const scriptFragment = document.createDocumentFragment();
 resources.forEach(function (item) {
@@ -8,14 +6,11 @@ resources.forEach(function (item) {
   script.src = chrome.runtime.getURL(item);
   if (item === "js/index.js") {
     script.onload = function () {
-      chrome.storage.local.get(pkgPaths, function (values) {
-        window.postMessage({
-          source: "antd-runner",
-          payload: {
-            extensionDir: chrome.runtime.getURL(""),
-            ...values,
-          },
-        });
+      window.postMessage({
+        source: "antd-runner",
+        payload: {
+          extensionDir: chrome.runtime.getURL(""),
+        },
       });
     };
   }

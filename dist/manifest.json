@@ -22,15 +22,11 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/*"],
+      "resources": ["js/*", "lib/*"],
       "matches": [
         "https://4x.ant.design/*",
         "https://4x-ant-design.antgroup.com/*"
       ]
     }
-  ],
-  "permissions": ["storage"],
-  "options_ui": {
-    "page": "option.html"
-  }
+  ]
 }
